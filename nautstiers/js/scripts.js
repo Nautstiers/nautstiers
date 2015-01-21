@@ -1,22 +1,71 @@
 var positions = new Array();
+var DRAG_PREFIX = 'draggable';
+
+function storePos(obj) {
+    var offset = obj.offset();
+    var dragId = obj.attr('id').replace(DRAG_PREFIX,'');
+    positions[dragId] = offset;
+
+    //debug log
+    $('#info').text(QueryString.p);
+	for (var i = 1; i < positions.length; i++) {
+    	if(positions[i] != null){
+    		$('#info').append('<br />'+i + ' ' + positions[i].top + ' ' + positions[i].left);
+    	}
+	}
+}
 
 $(function() {
     $(".drag-image").draggable({
     	drag: function(){
-            var offset = $(this).offset();
-            var dragId = $(this).attr('id').replace('draggable','');
-            positions[dragId] = offset;
-
-            $('#info').text(dragId);
-            for (var i = 1; i < positions.length; i++) {
-            	if(positions[i] != null){
-            		$('#info').append('<br />'+i + ' ' + positions[i].top + ' ' + positions[i].left);
-            	}
-			}
+    		//update locations in positions
+    		storePos($(this));
     	}
-    });
+  	});
 });
 
+$(function() {
+	var pos = QueryString.p;
+	var posArr = pos.split(",");
+	for (var i = 0; i < posArr.length; i = i+3) {
+		var dragObj = $('#'+DRAG_PREFIX+posArr[i]);
+		dragObj.css({'top': posArr[i+1]+'px','left': posArr[i+2]+'px','position': 'fixed'});
+		storePos(dragObj);
+	}
+});
+
+
+
+
+/*
+ * Snippets
+ */
+var QueryString = function () {
+  // This function is anonymous, is executed immediately and
+  // the return value is assigned to QueryString!
+  var query_string = {};
+  var query = window.location.search.substring(1);
+  var vars = query.split("&");
+  for (var i=0;i<vars.length;i++) {
+    var pair = vars[i].split("=");
+        // If first entry with this name
+    if (typeof query_string[pair[0]] === "undefined") {
+      query_string[pair[0]] = pair[1];
+        // If second entry with this name
+    } else if (typeof query_string[pair[0]] === "string") {
+      var arr = [ query_string[pair[0]], pair[1] ];
+      query_string[pair[0]] = arr;
+        // If third or later entry with this name
+    } else {
+      query_string[pair[0]].push(pair[1]);
+    }
+  }
+    return query_string;
+} ();
+
+/*
+ * Generated code
+ */
 img1=new Image();
 img1.src="afbeeldingen/Grid_Field.png";
 img2=new Image();
