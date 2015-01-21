@@ -19,6 +19,7 @@ $(function() {
 	$("#draggable18").draggable();
 	$("#draggable19").draggable();
 	$("#draggable20").draggable();
+	$("#draggable21").draggable();
 });
 
 img1=new Image();
