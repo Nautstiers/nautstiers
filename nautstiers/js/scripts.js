@@ -1,4 +1,7 @@
+var positions = {};
+
 $(function() {
+<<<<<<< HEAD
     $("#draggable1").draggable();
 	$("#draggable2").draggable();
 	$("#draggable3").draggable();
@@ -20,6 +23,19 @@ $(function() {
 	$("#draggable19").draggable();
 	$("#draggable20").draggable();
 	$("#draggable21").draggable();
+=======
+    $(".drag-image").draggable({
+    	drag: function(){
+            var offset = $(this).offset();
+            var xPos = offset.left;
+            var yPos = offset.top;
+            $('#info').text('' + $(this).attr('id'));
+            $('#posX').text('x: ' + xPos);
+            $('#posY').text('y: ' + yPos);
+            //positions.push({this.src()});
+    	}
+    });
+>>>>>>> origin/master
 });
 
 img1=new Image();

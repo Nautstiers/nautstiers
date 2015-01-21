@@ -1,6 +1,8 @@
 body {
     background-color: #000000;
 }
+
+#debug div { float: top-left; color: #ffffff; }
 <!--
 
 #screen {
