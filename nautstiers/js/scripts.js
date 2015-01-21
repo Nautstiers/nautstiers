@@ -1,15 +1,18 @@
-var positions = {};
+var positions = new Array();
 
 $(function() {
     $(".drag-image").draggable({
     	drag: function(){
             var offset = $(this).offset();
-            var xPos = offset.left;
-            var yPos = offset.top;
-            $('#info').text('' + $(this).attr('id'));
-            $('#posX').text('x: ' + xPos);
-            $('#posY').text('y: ' + yPos);
-            //positions.push({this.src()});
+            var dragId = $(this).attr('id').replace('draggable','');
+            positions[dragId] = offset;
+
+            $('#info').text(dragId);
+            for (var i = 1; i < positions.length; i++) {
+            	if(positions[i] != null){
+            		$('#info').append('<br />'+i + ' ' + positions[i].top + ' ' + positions[i].left);
+            	}
+			}
     	}
     });
 });

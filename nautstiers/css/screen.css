@@ -2,7 +2,7 @@ body {
     background-color: #000000;
 }
 
-#debug div { float: top-left; color: #ffffff; }
+#debug { position: fixed; float: left; color: #ffffff; z-index: 1000; }
 <!--
 
 #screen {
@@ -11,8 +11,8 @@ body {
     height: 919px;
     clear:both;
     border:0px solid black;
-	
-	
+
+
 }
-	
+
 -->
