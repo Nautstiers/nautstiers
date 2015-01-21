@@ -5,14 +5,29 @@ function storePos(obj) {
     var offset = obj.offset();
     var dragId = obj.attr('id').replace(DRAG_PREFIX,'');
     positions[dragId] = offset;
+    generateAndReplaceShareLink();
 
     //debug log
     $('#info').text(QueryString.p);
 	for (var i = 1; i < positions.length; i++) {
-    	if(positions[i] != null){
+    	if(positions[i] != undefined){
     		$('#info').append('<br />'+i + ' ' + positions[i].top + ' ' + positions[i].left);
     	}
 	}
+}
+
+function generateAndReplaceShareLink() {
+	var link = './index.html?p=';
+	var firstAdded = false;
+	for (var i = 1; i < positions.length; i++) {
+		if(positions[i] != null){
+			if(firstAdded){ link += ','; }
+			link += i+','+positions[i].top+','+positions[i].left;
+			firstAdded = true;
+		}
+	}
+	$(".share-link-a").attr('href', link);
+	$(".share-link-a").text(link);
 }
 
 $(function() {
@@ -26,11 +41,13 @@ $(function() {
 
 $(function() {
 	var pos = QueryString.p;
-	var posArr = pos.split(",");
-	for (var i = 0; i < posArr.length; i = i+3) {
-		var dragObj = $('#'+DRAG_PREFIX+posArr[i]);
-		dragObj.css({'top': posArr[i+1]+'px','left': posArr[i+2]+'px','position': 'fixed'});
-		storePos(dragObj);
+	if(pos != undefined){
+		var posArr = pos.split(",");
+		for (var i = 0; i < posArr.length; i = i+3) {
+			var dragObj = $('#'+DRAG_PREFIX+posArr[i]);
+			dragObj.css({'top': posArr[i+1]+'px','left': posArr[i+2]+'px','position': 'fixed'});
+			storePos(dragObj);
+		}
 	}
 });
 
