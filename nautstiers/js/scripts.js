@@ -36,29 +36,66 @@ img6.src="afbeeldingen/Grid_404.png";
 img7=new Image();
 img7.src="afbeeldingen/Grid_Random.png";
 
-function changeImage1() {
-    document.getElementById('myImage').src=img1.src;
-}
+ACHL= new Image();
+ACHL.src="afbeeldingen/Awesome_Cup_Mouseover.png";
+ACDL= new Image();
+ACDL.src="afbeeldingen/Awesome_Cup.png";
 
-function changeImage2() {
-    document.getElementById('myImage').src=img2.src;
-}
-function changeImage3() {
-document.getElementById('myImage').src=img3.src;
-}
+RibbitHL= new Image();
+RibbitHL.src="afbeeldingen/Ribbit_Mouseover.png";
+RibbitDL= new Image();
+RibbitDL.src="afbeeldingen/Ribbit_Icon.png";
 
-function changeImage4() {
-document.getElementById('myImage').src=img4.src;
-}
+AiguillonHL= new Image();
+AiguillonHL.src="afbeeldingen/Aiguillon_Mouseover.png";
+AiguillonDL= new Image();
+AiguillonDL.src="afbeeldingen/Aiguillon_Icon.png";
 
-function changeImage5() {
-document.getElementById('myImage').src=img5.src;
-}
+SoronaHL= new Image();
+SoronaHL.src="afbeeldingen/Sorona_Mouseover.png";
+SoronaDL= new Image();
+SoronaDL.src="afbeeldingen/Sorona_Icon.png";
 
-function changeImage6() {
-document.getElementById('myImage').src=img6.src;
-}
+AI_Station_205HL= new Image();
+AI_Station_205HL.src="afbeeldingen/AI_Station_205_Mouseover.png";
+AI_Station_205DL= new Image();
+AI_Station_205DL.src="afbeeldingen/AI_Station_205_Icon.png";
 
-function changeImage7() {
-document.getElementById('myImage').src=img7.src;
-}
+AI_Station_404HL= new Image();
+AI_Station_404HL.src="afbeeldingen/AI_Station_404_Mouseover.png";
+AI_Station_404DL= new Image();
+AI_Station_404DL.src="afbeeldingen/AI_Station_404_Icon.png";
+
+RandomHL= new Image();
+RandomHL.src="afbeeldingen/Random_Mouseover.png";
+RandomDL= new Image();
+RandomDL.src="afbeeldingen/Random_Icon.png";
+
+function changeImage1() {    document.getElementById('myImage').src=img1.src;}
+function changeImage2() {    document.getElementById('myImage').src=img2.src;}
+function changeImage3() {	document.getElementById('myImage').src=img3.src;}
+function changeImage4() {	document.getElementById('myImage').src=img4.src;}
+function changeImage5() {	document.getElementById('myImage').src=img5.src;}
+function changeImage6() {	document.getElementById('myImage').src=img6.src;}
+function changeImage7() {	document.getElementById('myImage').src=img7.src;}
+
+function HLACMap() {document.getElementById('ACMap').src=ACHL.src;}
+function DLACMap() {document.getElementById('ACMap').src=ACDL.src;}
+
+function HLRibbit() {document.getElementById('RibbitMap').src=RibbitHL.src;}
+function DLRibbit() {document.getElementById('RibbitMap').src=RibbitDL.src;}
+
+function HLAiguillon() {document.getElementById('AiguillonMap').src=AiguillonHL.src;}
+function DLAiguillon() {document.getElementById('AiguillonMap').src=AiguillonDL.src;}
+
+function HLSorona() {document.getElementById('SoronaMap').src=SoronaHL.src;}
+function DLSorona() {document.getElementById('SoronaMap').src=SoronaDL.src;}
+
+function HLAI_Station_205() {document.getElementById('AI_Station_205_Map').src=AI_Station_205HL.src;}
+function DLAI_Station_205() {document.getElementById('AI_Station_205_Map').src=AI_Station_205DL.src;}
+
+function HLAI_Station_404() {document.getElementById('AI_Station_404_Map').src=AI_Station_404HL.src;}
+function DLAI_Station_404() {document.getElementById('AI_Station_404_Map').src=AI_Station_404DL.src;}
+
+function HLRandom() {document.getElementById('Random_Map').src=RandomHL.src;}
+function DLRandom() {document.getElementById('Random_Map').src=RandomDL.src;}
