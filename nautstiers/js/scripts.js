@@ -112,20 +112,19 @@ var QueryString = function () {
 /*
  * Generated code
  */
-img1=new Image();
-img1.src="afbeeldingen/Grid_Field.png";
+
 img2=new Image();
-img2.src="afbeeldingen/Grid_Ribbit.png";
+img2.src="afbeeldingen/Ribbit_Icon_Orb.png";
 img3=new Image();
-img3.src="afbeeldingen/Grid_Aiguillon.png";
+img3.src="afbeeldingen/Aiguillon_Icon_Orb.png";
 img4=new Image();
-img4.src="afbeeldingen/Grid_Sorona.png";
+img4.src="afbeeldingen/Sorona_Icon_Orb.png";
 img5=new Image();
-img5.src="afbeeldingen/Grid_205.png";
+img5.src="afbeeldingen/AI_Station_205_Icon_Orb.png";
 img6=new Image();
-img6.src="afbeeldingen/Grid_404.png";
+img6.src="afbeeldingen/AI_Station_404_Icon_Orb.png";
 img7=new Image();
-img7.src="afbeeldingen/Grid_Random.png";
+img7.src="afbeeldingen/Black_Orb.png";
 
 
 
@@ -159,12 +158,12 @@ RandomHL.src="afbeeldingen/Random_Mouseover.png";
 RandomDL= new Image();
 RandomDL.src="afbeeldingen/Random_Icon.png";
 
-function changeImage2() { document.getElementById('myImage').src=img2.src;}
-function changeImage3() {	document.getElementById('myImage').src=img3.src;}
-function changeImage4() {	document.getElementById('myImage').src=img4.src;}
-function changeImage5() {	document.getElementById('myImage').src=img5.src;}
-function changeImage6() {	document.getElementById('myImage').src=img6.src;}
-function changeImage7() {	document.getElementById('myImage').src=img7.src;}
+function changeImage2() { document.getElementById('FirstSphere').src=img2.src;}
+function changeImage3() {	document.getElementById('SecondSphere').src=img3.src;}
+function changeImage4() {	document.getElementById('ThirdSphere').src=img4.src;}
+function changeImage5() {	document.getElementById('FourthSphere').src=img5.src;}
+function changeImage6() {	document.getElementById('FifthSphere').src=img6.src;}
+function changeImage7() {	document.getElementById('FirstSphere').src=img7.src; document.getElementById('SecondSphere').src=img7.src; document.getElementById('ThirdSphere').src=img7.src; document.getElementById('FourthSphere').src=img7.src; document.getElementById('FifthSphere').src=img7.src;}
 
 function HLRibbit() {document.getElementById('RibbitMap').src=RibbitHL.src;}
 function DLRibbit() {document.getElementById('RibbitMap').src=RibbitDL.src;}
