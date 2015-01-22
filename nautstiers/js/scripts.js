@@ -129,10 +129,7 @@ img6.src="afbeeldingen/Grid_404.png";
 img7=new Image();
 img7.src="afbeeldingen/Grid_Random.png";
 
-ACHL= new Image();
-ACHL.src="afbeeldingen/Awesome_Cup_Mouseover.png";
-ACDL= new Image();
-ACDL.src="afbeeldingen/Awesome_Cup.png";
+
 
 RibbitHL= new Image();
 RibbitHL.src="afbeeldingen/Ribbit_Mouseover.png";
@@ -164,16 +161,12 @@ RandomHL.src="afbeeldingen/Random_Mouseover.png";
 RandomDL= new Image();
 RandomDL.src="afbeeldingen/Random_Icon.png";
 
-function changeImage1() { document.getElementById('myImage').src=img1.src;}
 function changeImage2() { document.getElementById('myImage').src=img2.src;}
 function changeImage3() {	document.getElementById('myImage').src=img3.src;}
 function changeImage4() {	document.getElementById('myImage').src=img4.src;}
 function changeImage5() {	document.getElementById('myImage').src=img5.src;}
 function changeImage6() {	document.getElementById('myImage').src=img6.src;}
 function changeImage7() {	document.getElementById('myImage').src=img7.src;}
-
-function HLACMap() {document.getElementById('ACMap').src=ACHL.src;}
-function DLACMap() {document.getElementById('ACMap').src=ACDL.src;}
 
 function HLRibbit() {document.getElementById('RibbitMap').src=RibbitHL.src;}
 function DLRibbit() {document.getElementById('RibbitMap').src=RibbitDL.src;}
