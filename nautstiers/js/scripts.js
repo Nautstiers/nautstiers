@@ -1,53 +1,82 @@
+//array to store position of the nauts, offsets mapped by id
 var positions = new Array();
+//part of the id that, this is prefixed in the draggable hmtl object
 var DRAG_PREFIX = 'draggable';
 
+/*
+ * obj - dragable image
+ */
 function storePos(obj) {
+    //get and store the offset in positions array
     var offset = obj.offset();
     var dragId = obj.attr('id').replace(DRAG_PREFIX,'');
     positions[dragId] = offset;
-    generateAndReplaceShareLink();
 
     //debug log
     $('#info').text(QueryString.p);
-	for (var i = 1; i < positions.length; i++) {
+    for (var i = 1; i < positions.length; i++) {
     	if(positions[i] != undefined){
     		$('#info').append('<br />'+i + ' ' + positions[i].top + ' ' + positions[i].left);
     	}
-	}
+    }
 }
 
+/*
+ * Update the link in <a class="share-link-a"> based on offsets stored in the position array
+ */
 function generateAndReplaceShareLink() {
 	var link = './index.html?p=';
+  //false if first position is not added yet
 	var firstAdded = false;
+  //add a position for each image seperated by ,
 	for (var i = 1; i < positions.length; i++) {
 		if(positions[i] != null){
+      //only add , if not the first position
 			if(firstAdded){ link += ','; }
+      //add position to link - id,top_offset,left_offset
 			link += i+','+positions[i].top+','+positions[i].left;
 			firstAdded = true;
 		}
 	}
+  //replace the link
 	$(".share-link-a").attr('href', link);
 	$(".share-link-a").text(link);
 }
 
+/*
+ * drag trigger
+ */
 $(function() {
     $(".drag-image").draggable({
     	drag: function(){
     		//update locations in positions
     		storePos($(this));
+        //update link
+        generateAndReplaceShareLink();
     	}
   	});
 });
 
+/*
+ * initial position
+ */
 $(function() {
+  //get url parameter p
 	var pos = QueryString.p;
 	if(pos != undefined){
+    //split values
 		var posArr = pos.split(",");
+    //loop per 3 values TODO: better error checking, currently very easy to break
 		for (var i = 0; i < posArr.length; i = i+3) {
+      //select the dragable object
 			var dragObj = $('#'+DRAG_PREFIX+posArr[i]);
+      //set the initital postion using css
 			dragObj.css({'top': posArr[i+1]+'px','left': posArr[i+2]+'px','position': 'fixed'});
+      //store the position set
 			storePos(dragObj);
 		}
+    //update link
+    generateAndReplaceShareLink();
 	}
 });
 
@@ -133,8 +162,8 @@ RandomHL.src="afbeeldingen/Random_Mouseover.png";
 RandomDL= new Image();
 RandomDL.src="afbeeldingen/Random_Icon.png";
 
-function changeImage1() {    document.getElementById('myImage').src=img1.src;}
-function changeImage2() {    document.getElementById('myImage').src=img2.src;}
+function changeImage1() { document.getElementById('myImage').src=img1.src;}
+function changeImage2() { document.getElementById('myImage').src=img2.src;}
 function changeImage3() {	document.getElementById('myImage').src=img3.src;}
 function changeImage4() {	document.getElementById('myImage').src=img4.src;}
 function changeImage5() {	document.getElementById('myImage').src=img5.src;}
