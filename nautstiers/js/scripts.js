@@ -15,24 +15,21 @@ function storePos(obj) {
 
     //debug log
     $('#info').text('');
-    $('#info').text(QueryString.p);
+    $('#info').text(getUrl());
     for (var i = 1; i < positions.length; i++) {
     	if(positions[i] != undefined){
     		$('#info').append('<br />'+i + ' ' + positions[i].top + ' ' + positions[i].left);
     	}
     }
-}
-
-function removePx(string) {
-    return string.replace('px','');
+    //debug log
 }
 
 /*
  * Update the link in <a class="share-link-a"> based on offsets stored in the position array
  */
 function generateAndReplaceShareLink() {
-  //TODO url should use current location
-	var link = 'http://nautstiers.com/index.html?p=';
+  //get url and make base link
+	var link = getUrl()+'?p=';
   //false if first position is not added yet
 	var firstAdded = false;
   //add a position for each image seperated by ,
@@ -87,8 +84,6 @@ $(document).ready(function() {
 });
 
 
-
-
 /*
  * Snippets
  */
@@ -115,10 +110,21 @@ var QueryString = function () {
     return query_string;
 } ();
 
+//remove px from a string
+function removePx(string) {
+    return string.replace('px','');
+}
+
+//get current url
+function getUrl(){
+    var l = window.location;
+    var url = l.protocol + "//" + l.host + "/" + l.pathname;
+    return url;
+}
+
 /*
  * Generated code
  */
-
 img2=new Image();
 img2.src="afbeeldingen/Ribbit_Icon_Orb.png";
 img3=new Image();
@@ -131,8 +137,6 @@ img6=new Image();
 img6.src="afbeeldingen/AI_Station_404_Icon_Orb.png";
 img7=new Image();
 img7.src="afbeeldingen/Black_Orb.png";
-
-
 
 RibbitHL= new Image();
 RibbitHL.src="afbeeldingen/Ribbit_Mouseover.png";
