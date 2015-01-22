@@ -25,7 +25,8 @@ function storePos(obj) {
  * Update the link in <a class="share-link-a"> based on offsets stored in the position array
  */
 function generateAndReplaceShareLink() {
-	var link = './index.html?p=';
+  //TODO url should use current location
+	var link = 'http://nautstiers.com/index.html?p=';
   //false if first position is not added yet
 	var firstAdded = false;
   //add a position for each image seperated by ,
@@ -41,6 +42,7 @@ function generateAndReplaceShareLink() {
   //replace the link
 	$(".share-link-a").attr('href', link);
 	$(".share-link-a").text(link);
+  $(".share-input").attr('value', link);
 }
 
 /*
