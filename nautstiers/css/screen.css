@@ -1,6 +1,10 @@
+html, body, #Background { padding: 0px; margin: 0px; }
+
 body {
     background-color: #000000;
 }
+
+.drag-image { position: relative; }
 
 #debug { position: fixed; float: left; color: #ffffff; z-index: 1000; }
 <!--

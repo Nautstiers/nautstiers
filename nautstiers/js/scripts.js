@@ -7,18 +7,24 @@ var DRAG_PREFIX = 'draggable';
  * obj - dragable image
  */
 function storePos(obj) {
-    //get and store the offset in positions array
-    var offset = obj.offset();
+    //get and store the relative position in positions array
     var dragId = obj.attr('id').replace(DRAG_PREFIX,'');
-    positions[dragId] = offset;
+    var top = removePx(obj.css('top'));
+    var left = removePx(obj.css('left'));
+    positions[dragId] = {'top' : top, 'left' : left};
 
     //debug log
+    $('#info').text('');
     $('#info').text(QueryString.p);
     for (var i = 1; i < positions.length; i++) {
     	if(positions[i] != undefined){
     		$('#info').append('<br />'+i + ' ' + positions[i].top + ' ' + positions[i].left);
     	}
     }
+}
+
+function removePx(string) {
+    return string.replace('px','');
 }
 
 /*
@@ -60,7 +66,7 @@ $(function() {
 /*
  * initial position
  */
-$(function() {
+$(document).ready(function() {
   //get url parameter p
 	var pos = QueryString.p;
 	if(pos != undefined){
@@ -71,7 +77,7 @@ $(function() {
       //select the dragable object
 			var dragObj = $('#'+DRAG_PREFIX+posArr[i]);
       //set the initital postion using css
-			dragObj.css({'top': posArr[i+1]+'px','left': posArr[i+2]+'px','position': 'fixed'});
+			dragObj.css({'position':'releative','top':posArr[i+1]+'px','left':posArr[i+2]+'px'});
       //store the position set
 			storePos(dragObj);
 		}
