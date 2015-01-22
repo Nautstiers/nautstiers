@@ -39,9 +39,7 @@ function generateAndReplaceShareLink() {
 			firstAdded = true;
 		}
 	}
-  //replace the link
-	$(".share-link-a").attr('href', link);
-	$(".share-link-a").text(link);
+  //replace the link in the input box
   $(".share-input").attr('value', link);
 }
 
