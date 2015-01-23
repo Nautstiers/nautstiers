@@ -22,15 +22,7 @@ function storePos(obj) {
     var left = removePx(obj.css('left'));
     positions[dragId] = {'top' : top, 'left' : left};
 
-    //debug log
-    $('#info').text('');
-    $('#info').text(getUrl());
-    for (var i = 1; i < positions.length; i++) {
-    	if(positions[i] != undefined){
-    		$('#info').append('<br />'+i + ' ' + positions[i].top + ' ' + positions[i].left);
-    	}
-    }
-    //debug log
+    logPositions();
 }
 
 /*
@@ -84,11 +76,11 @@ function setupDragTriggers(){
 
 //array containing mapSphereImages
 var mapSpheres = new Array(
-  { 'selectId' : '#RibbitMap',          'orbId' : '#FirstSphere',   'src' : 'afbeeldingen/Ribbit_Icon_Orb.png',    'selected' : false, },
-  { 'selectId' : '#AiguillonMap',       'orbId' : '#SecondSphere',  'src' : 'afbeeldingen/Aiguillon_Icon_Orb.png', 'selected' : false, },
-  { 'selectId' : '#SoronaMap',          'orbId' : '#ThirdSphere',   'src' : 'afbeeldingen/Sorona_Icon_Orb.png',    'selected' : false, },
-  { 'selectId' : '#AI_Station_205_Map', 'orbId' : '#FourthSphere',  'src' : 'afbeeldingen/AI_Station_205_Icon_Orb.png', 'selected' : false, },
-  { 'selectId' : '#AI_Station_404_Map', 'orbId' : '#FifthSphere',   'src' : 'afbeeldingen/AI_Station_404_Icon_Orb.png', 'selected' : false, }
+  { 'selectId' : '#RibbitMap',    'orbId' : '#FirstSphere',  'src' : 'afbeeldingen/Ribbit_Icon_Orb.png',    'selected' : false, },
+  { 'selectId' : '#AiguillonMap', 'orbId' : '#SecondSphere', 'src' : 'afbeeldingen/Aiguillon_Icon_Orb.png', 'selected' : false, },
+  { 'selectId' : '#SoronaMap',    'orbId' : '#ThirdSphere',  'src' : 'afbeeldingen/Sorona_Icon_Orb.png',    'selected' : false, },
+  { 'selectId' : '#AI_Station_205_Map', 'orbId' : '#FourthSphere', 'src' : 'afbeeldingen/AI_Station_205_Icon_Orb.png', 'selected' : false, },
+  { 'selectId' : '#AI_Station_404_Map', 'orbId' : '#FifthSphere',  'src' : 'afbeeldingen/AI_Station_404_Icon_Orb.png', 'selected' : false, }
 );
 var mapSphereBlack = 'afbeeldingen/Black_Orb.png';
 
@@ -100,26 +92,74 @@ function setupMapButtons(){
   //TODO for loop $.click anonimous function can't acces mapSpheres, find out why and solve
   $(mapSpheres[0].selectId).click(function(event) {
     $(mapSpheres[0].orbId).attr('src',mapSpheres[0].src);
+    mapSpheres[0].selected = true;
+    logMaps();
   });
   $(mapSpheres[1].selectId).click(function(event) {
     $(mapSpheres[1].orbId).attr('src',mapSpheres[1].src);
+    mapSpheres[1].selected = true;
+    logMaps();
   });
   $(mapSpheres[2].selectId).click(function(event) {
     $(mapSpheres[2].orbId).attr('src',mapSpheres[2].src);
+    mapSpheres[2].selected = true;
+    logMaps();
   });
   $(mapSpheres[3].selectId).click(function(event) {
     $(mapSpheres[3].orbId).attr('src',mapSpheres[3].src);
+    mapSpheres[3].selected = true;
+    logMaps();
   });
   $(mapSpheres[4].selectId).click(function(event) {
     $(mapSpheres[4].orbId).attr('src',mapSpheres[4].src);
+    mapSpheres[4].selected = true;
+    logMaps();
   });
 
   //reset spheres to blank
   $('#Random_Map').click(function(event) {
     $('.mapsphere').each(function() {
-      $(this).attr('src', mapSphereBlack);
+      //reset values in array
+      for (var i = 0; i < mapSpheres.length; i++){
+        mapSpheres[i].selected = false;
+      }
+      //fill the orbs
+      fillMapOrbs();
     });
   });
+}
+
+/*
+ * sets maps images accoring to whether they are selected yes/no
+ */
+function fillMapOrbs(){
+  for (var i = 0; i < mapSpheres.length; i++){
+    var map = mapSpheres[i];
+    if (map.selected) {
+      $(map.orbId).attr('src',map.src);
+    } else {
+      $(map.orbId).attr('src',mapSphereBlack);
+    }
+  }
+  logMaps();
+}
+
+
+function logMaps(){
+  $('#info').text(mapSpheres.length + ' maps');
+  for (var i = 0; i < mapSpheres.length; i++){
+    $('#info').append('<br /> map ' + mapSpheres[i].selectId + ' : ' + mapSpheres[i].selected);
+  }
+}
+
+function logPositions(){
+    $('#info').text('');
+    $('#info').text(getUrl());
+    for (var i = 1; i < positions.length; i++) {
+      if(positions[i] != undefined){
+        $('#info').append('<br />'+i + ' ' + positions[i].top + ' ' + positions[i].left);
+      }
+    }
 }
 
 /*
@@ -128,7 +168,7 @@ function setupMapButtons(){
 function setupInitialPositions(){
   //get url parameter p
   var pos = QueryString.p;
-  if(pos != undefined){
+  if (pos != undefined){
     //split values
     var posArr = pos.split(",");
     //loop per 3 values TODO: better error checking, currently very easy to break
