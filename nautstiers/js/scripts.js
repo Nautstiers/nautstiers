@@ -1,5 +1,5 @@
 //array to store position of the nauts, offsets mapped by id
-var positions = new Array();
+var positions = [];
 //part of the id that, this is prefixed in the draggable hmtl object
 var DRAG_PREFIX = 'draggable';
 
@@ -49,7 +49,7 @@ function addDragPositionsToLink(link){
   var firstAdded = false;
   //add a position for each image seperated by ,
   for (var i = 1; i < positions.length; i++) {
-    if(positions[i] != null){
+    if(positions[i] !== null){
       //only add ',' if not the first position
       if(firstAdded){ link += ','; }
       //add position to link - id,top_offset,left_offset
@@ -70,7 +70,11 @@ function addMapPositionsToLink(link){
   link += '&m=';
   //add a '1' selected ot '0' not selected for each map
   for (var i = 0; i < mapSpheres.length; i++) {
-    mapSpheres[i].selected ? link += '1' : link += '0';
+    if(mapSpheres[i].selected) {
+      link += '1';
+    } else {
+      link += '0';
+    }
     aMapSelected = true;
   }
   //return empty string if no maps selected
@@ -179,7 +183,7 @@ function fillMapOrbs(){
 function setupInitialPositions(){
   //get url parameter p
   var pos = QueryString.p;
-  if (pos != undefined && pos !== ''){
+  if (pos !== undefined && pos !== ''){
     //split values
     var posArr = pos.split(",");
     //loop per 3 values TODO: better error checking, currently very easy to break
@@ -202,7 +206,7 @@ function setupInitialPositions(){
 function setupInitialMaps(){
   //get url parameter m
   var maps = QueryString.m;
-  if (maps != undefined && maps !== ''){
+  if (maps !== undefined && maps !== ''){
     for (var i = 0; i < maps.length; i++) {
       if(maps.charAt(i) == '1'){
         mapSpheres[i].selected = true;
@@ -227,7 +231,7 @@ function logPositions(){
     $('#info').text('');
     $('#info').text(getUrl());
     for (var i = 1; i < positions.length; i++) {
-      if(positions[i] != undefined){
+      if(positions[i] !== undefined){
         $('#info').append('<br />'+i + ' ' + positions[i].top + ' ' + positions[i].left);
       }
     }
