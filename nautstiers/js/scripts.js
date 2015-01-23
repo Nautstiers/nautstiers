@@ -29,21 +29,32 @@ function storePos(obj) {
  */
 function generateAndReplaceShareLink() {
   //get url and make base link
-	var link = getUrl()+'?p=';
-  //false if first position is not added yet
-	var firstAdded = false;
-  //add a position for each image seperated by ,
-	for (var i = 1; i < positions.length; i++) {
-		if(positions[i] != null){
-      //only add , if not the first position
-			if(firstAdded){ link += ','; }
-      //add position to link - id,top_offset,left_offset
-			link += i+','+positions[i].top+','+positions[i].left;
-			firstAdded = true;
-		}
-	}
+	var link = getUrl()+'?';
+  //add positions
+  link = addDragPositionsToLink(link);
   //replace the link in the input box
   $(".share-input").attr('value', link);
+}
+
+/*
+ * Adds the positions to a string
+ */
+function addDragPositionsToLink(link){
+  //add parameter
+  link += 'p=';
+  //false if first position is not added yet
+  var firstAdded = false;
+  //add a position for each image seperated by ,
+  for (var i = 1; i < positions.length; i++) {
+    if(positions[i] != null){
+      //only add ',' if not the first position
+      if(firstAdded){ link += ','; }
+      //add position to link - id,top_offset,left_offset
+      link += i+','+positions[i].top+','+positions[i].left;
+      firstAdded = true;
+    }
+  }
+  return link;
 }
 
 /*
