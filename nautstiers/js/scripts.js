@@ -8,6 +8,7 @@ var DRAG_PREFIX = 'draggable';
  */
 $(document).ready(function() {
   setupInitialPositions();
+  setupInitialMaps();
   setupDragTriggers();
   setupMapButtons();
 });
@@ -193,6 +194,23 @@ function setupInitialPositions(){
     //update link
     generateAndReplaceShareLink();
   }
+}
+
+/*
+ * initial maps
+ */
+function setupInitialMaps(){
+  //get url parameter m
+  var maps = QueryString.m;
+  if (maps != undefined && maps !== ''){
+    for (var i = 0; i < maps.length; i++) {
+      if(maps.charAt(i) == '1'){
+        mapSpheres[i].selected = true;
+      }
+    }
+    fillMapOrbs();
+  }
+
 }
 
 /*
