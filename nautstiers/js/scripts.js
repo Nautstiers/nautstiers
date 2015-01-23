@@ -137,6 +137,10 @@ img6=new Image();
 img6.src="afbeeldingen/AI_Station_404_Icon_Orb.png";
 img7=new Image();
 img7.src="afbeeldingen/Black_Orb.png";
+img8=new Image();
+img8.src="afbeeldingen/League_1.png";
+img9=new Image();
+img9.src="afbeeldingen/League_2.png";
 
 RibbitHL= new Image();
 RibbitHL.src="afbeeldingen/Ribbit_Mouseover.png";
@@ -174,6 +178,13 @@ function changeImage4() {	document.getElementById('ThirdSphere').src=img4.src;}
 function changeImage5() {	document.getElementById('FourthSphere').src=img5.src;}
 function changeImage6() {	document.getElementById('FifthSphere').src=img6.src;}
 function changeImage7() {	document.getElementById('FirstSphere').src=img7.src; document.getElementById('SecondSphere').src=img7.src; document.getElementById('ThirdSphere').src=img7.src; document.getElementById('FourthSphere').src=img7.src; document.getElementById('FifthSphere').src=img7.src;}
+
+function changeImage8() {
+
+        if (document.getElementById("Competitive").src == "afbeeldingen/Competitive.png") 
+        {
+            document.getElementById("Competitive").src = "afbeeldingen/League_1.png";
+        }}
 
 function HLRibbit() {document.getElementById('RibbitMap').src=RibbitHL.src;}
 function DLRibbit() {document.getElementById('RibbitMap').src=RibbitDL.src;}
