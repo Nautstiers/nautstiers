@@ -49,7 +49,7 @@ function addDragPositionsToLink(link){
   var firstAdded = false;
   //add a position for each image seperated by ,
   for (var i = 1; i < positions.length; i++) {
-    if(positions[i] !== null){
+    if(positions[i] !== undefined){
       //only add ',' if not the first position
       if(firstAdded){ link += ','; }
       //add position to link - id,top_offset,left_offset
