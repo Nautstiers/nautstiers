@@ -4,6 +4,15 @@ var positions = new Array();
 var DRAG_PREFIX = 'draggable';
 
 /*
+ * Doc ready
+ */
+$(document).ready(function() {
+  setupInitialPositions();
+  setupDragTriggers();
+  setupMapButtons();
+});
+
+/*
  * obj - dragable image
  */
 function storePos(obj) {
@@ -60,39 +69,78 @@ function addDragPositionsToLink(link){
 /*
  * drag trigger
  */
-$(function() {
-    $(".drag-image").draggable({
-    	drag: function(){
-    		//update locations in positions
-    		storePos($(this));
-        //update link
-        generateAndReplaceShareLink();
-    	}
-  	});
-});
+function setupDragTriggers(){
+  $(function() {
+      $(".drag-image").draggable({
+      	drag: function(){
+      		//update locations in positions
+      		storePos($(this));
+          //update link
+          generateAndReplaceShareLink();
+      	}
+    	});
+  });
+}
+
+var mapSpheres = new Array(
+  'afbeeldingen/Ribbit_Icon_Orb.png',
+  'afbeeldingen/Aiguillon_Icon_Orb.png',
+  'afbeeldingen/Sorona_Icon_Orb.png',
+  'afbeeldingen/AI_Station_205_Icon_Orb.png',
+  'afbeeldingen/AI_Station_404_Icon_Orb.png',
+  'afbeeldingen/Black_Orb.png'
+);
+/*
+ * map buttons
+ */
+function setupMapButtons(){
+  //set map triggers
+  $('#RibbitMap').click(function(event) {
+    $('#FirstSphere').attr('src',mapSpheres[0]);
+  });
+  $('#AiguillonMap').click(function(event) {
+    $('#SecondSphere').attr('src',mapSpheres[1]);
+  });
+  $('#SoronaMap').click(function(event) {
+    $('#ThirdSphere').attr('src',mapSpheres[2]);
+  });
+  $('#AI_Station_205_Map').click(function(event) {
+    $('#FourthSphere').attr('src',mapSpheres[3]);
+  });
+  $('#AI_Station_404_Map').click(function(event) {
+    $('#FifthSphere').attr('src',mapSpheres[4]);
+  });
+
+  //reset spheres to blank
+  $('#Random_Map').click(function(event) {
+    $('.mapsphere').each(function() {
+      $(this).attr('src',mapSpheres[5]);
+    });
+  });
+}
 
 /*
  * initial position
  */
-$(document).ready(function() {
+function setupInitialPositions(){
   //get url parameter p
-	var pos = QueryString.p;
-	if(pos != undefined){
+  var pos = QueryString.p;
+  if(pos != undefined){
     //split values
-		var posArr = pos.split(",");
+    var posArr = pos.split(",");
     //loop per 3 values TODO: better error checking, currently very easy to break
-		for (var i = 0; i < posArr.length; i = i+3) {
+    for (var i = 0; i < posArr.length; i = i+3) {
       //select the dragable object
-			var dragObj = $('#'+DRAG_PREFIX+posArr[i]);
+      var dragObj = $('#'+DRAG_PREFIX+posArr[i]);
       //set the initital postion using css
-			dragObj.css({'position':'releative','top':posArr[i+1]+'px','left':posArr[i+2]+'px'});
+      dragObj.css({'position':'releative','top':posArr[i+1]+'px','left':posArr[i+2]+'px'});
       //store the position set
-			storePos(dragObj);
-		}
+      storePos(dragObj);
+    }
     //update link
     generateAndReplaceShareLink();
-	}
-});
+  }
+}
 
 
 /*
@@ -136,19 +184,6 @@ function getUrl(){
 /*
  * Generated code
  */
-img2=new Image();
-img2.src="afbeeldingen/Ribbit_Icon_Orb.png";
-img3=new Image();
-img3.src="afbeeldingen/Aiguillon_Icon_Orb.png";
-img4=new Image();
-img4.src="afbeeldingen/Sorona_Icon_Orb.png";
-img5=new Image();
-img5.src="afbeeldingen/AI_Station_205_Icon_Orb.png";
-img6=new Image();
-img6.src="afbeeldingen/AI_Station_404_Icon_Orb.png";
-img7=new Image();
-img7.src="afbeeldingen/Black_Orb.png";
-
 RibbitHL= new Image();
 RibbitHL.src="afbeeldingen/Ribbit_Mouseover.png";
 RibbitDL= new Image();
@@ -178,13 +213,6 @@ RandomHL= new Image();
 RandomHL.src="afbeeldingen/Random_Mouseover.png";
 RandomDL= new Image();
 RandomDL.src="afbeeldingen/Random_Icon.png";
-
-function changeImage2() { document.getElementById('FirstSphere').src=img2.src;}
-function changeImage3() {	document.getElementById('SecondSphere').src=img3.src;}
-function changeImage4() {	document.getElementById('ThirdSphere').src=img4.src;}
-function changeImage5() {	document.getElementById('FourthSphere').src=img5.src;}
-function changeImage6() {	document.getElementById('FifthSphere').src=img6.src;}
-function changeImage7() {	document.getElementById('FirstSphere').src=img7.src; document.getElementById('SecondSphere').src=img7.src; document.getElementById('ThirdSphere').src=img7.src; document.getElementById('FourthSphere').src=img7.src; document.getElementById('FifthSphere').src=img7.src;}
 
 function HLRibbit() {document.getElementById('RibbitMap').src=RibbitHL.src;}
 function DLRibbit() {document.getElementById('RibbitMap').src=RibbitDL.src;}
