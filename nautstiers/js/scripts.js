@@ -31,8 +31,9 @@ function storePos(obj) {
 function generateAndReplaceShareLink() {
   //get url and make base link
 	var link = getUrl()+'?';
-  //add positions
+  //ad positions, maps
   link = addDragPositionsToLink(link);
+  link = addMapPositionsToLink(link);
   //replace the link in the input box
   $(".share-input").attr('value', link);
 }
@@ -54,6 +55,26 @@ function addDragPositionsToLink(link){
       link += i+','+positions[i].top+','+positions[i].left;
       firstAdded = true;
     }
+  }
+  return link;
+}
+
+/*
+ * Adds the maps to a string
+ */
+function addMapPositionsToLink(link){
+  //trac if a map is selected
+  var aMapSelected = false;
+  //add parameter
+  link += '&m=';
+  //add a '1' selected ot '0' not selected for each map
+  for (var i = 0; i < mapSpheres.length; i++) {
+    mapSpheres[i].selected ? link += '1' : link += '0';
+    aMapSelected = true;
+  }
+  //return empty string if no maps selected
+  if(!aMapSelected){
+    return '';
   }
   return link;
 }
@@ -94,26 +115,31 @@ function setupMapButtons(){
     $(mapSpheres[0].orbId).attr('src',mapSpheres[0].src);
     mapSpheres[0].selected = true;
     logMaps();
+    generateAndReplaceShareLink();
   });
   $(mapSpheres[1].selectId).click(function(event) {
     $(mapSpheres[1].orbId).attr('src',mapSpheres[1].src);
     mapSpheres[1].selected = true;
     logMaps();
+    generateAndReplaceShareLink();
   });
   $(mapSpheres[2].selectId).click(function(event) {
     $(mapSpheres[2].orbId).attr('src',mapSpheres[2].src);
     mapSpheres[2].selected = true;
     logMaps();
+    generateAndReplaceShareLink();
   });
   $(mapSpheres[3].selectId).click(function(event) {
     $(mapSpheres[3].orbId).attr('src',mapSpheres[3].src);
     mapSpheres[3].selected = true;
     logMaps();
+    generateAndReplaceShareLink();
   });
   $(mapSpheres[4].selectId).click(function(event) {
     $(mapSpheres[4].orbId).attr('src',mapSpheres[4].src);
     mapSpheres[4].selected = true;
     logMaps();
+    generateAndReplaceShareLink();
   });
 
   //reset spheres to blank
@@ -125,6 +151,8 @@ function setupMapButtons(){
       }
       //fill the orbs
       fillMapOrbs();
+      //update share link
+      generateAndReplaceShareLink();
     });
   });
 }
@@ -144,31 +172,13 @@ function fillMapOrbs(){
   logMaps();
 }
 
-
-function logMaps(){
-  $('#info').text(mapSpheres.length + ' maps');
-  for (var i = 0; i < mapSpheres.length; i++){
-    $('#info').append('<br /> map ' + mapSpheres[i].selectId + ' : ' + mapSpheres[i].selected);
-  }
-}
-
-function logPositions(){
-    $('#info').text('');
-    $('#info').text(getUrl());
-    for (var i = 1; i < positions.length; i++) {
-      if(positions[i] != undefined){
-        $('#info').append('<br />'+i + ' ' + positions[i].top + ' ' + positions[i].left);
-      }
-    }
-}
-
 /*
  * initial position
  */
 function setupInitialPositions(){
   //get url parameter p
   var pos = QueryString.p;
-  if (pos != undefined){
+  if (pos != undefined && pos !== ''){
     //split values
     var posArr = pos.split(",");
     //loop per 3 values TODO: better error checking, currently very easy to break
@@ -185,6 +195,25 @@ function setupInitialPositions(){
   }
 }
 
+/*
+ * log functions
+ */
+function logMaps(){
+  $('#info').text(mapSpheres.length + ' maps');
+  for (var i = 0; i < mapSpheres.length; i++){
+    $('#info').append('<br /> map ' + mapSpheres[i].selectId + ' : ' + mapSpheres[i].selected);
+  }
+}
+
+function logPositions(){
+    $('#info').text('');
+    $('#info').text(getUrl());
+    for (var i = 1; i < positions.length; i++) {
+      if(positions[i] != undefined){
+        $('#info').append('<br />'+i + ' ' + positions[i].top + ' ' + positions[i].left);
+      }
+    }
+}
 
 /*
  * Snippets
