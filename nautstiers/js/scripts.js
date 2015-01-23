@@ -274,6 +274,11 @@ function getUrl(){
 /*
  * Generated code
  */
+img8=new Image();
+img8.src="afbeeldingen/League_1.png";
+img9=new Image();
+img9.src="afbeeldingen/League_2.png";
+
 RibbitHL= new Image();
 RibbitHL.src="afbeeldingen/Ribbit_Mouseover.png";
 RibbitDL= new Image();
@@ -303,6 +308,13 @@ RandomHL= new Image();
 RandomHL.src="afbeeldingen/Random_Mouseover.png";
 RandomDL= new Image();
 RandomDL.src="afbeeldingen/Random_Icon.png";
+
+function changeImage8() {
+
+        if (document.getElementById("Competitive").src == "afbeeldingen/Competitive.png") 
+        {
+            document.getElementById("Competitive").src = "afbeeldingen/League_1.png";
+        }}
 
 function HLRibbit() {document.getElementById('RibbitMap').src=RibbitHL.src;}
 function DLRibbit() {document.getElementById('RibbitMap').src=RibbitDL.src;}
