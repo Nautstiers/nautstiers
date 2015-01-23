@@ -82,39 +82,42 @@ function setupDragTriggers(){
   });
 }
 
+//array containing mapSphereImages
 var mapSpheres = new Array(
-  'afbeeldingen/Ribbit_Icon_Orb.png',
-  'afbeeldingen/Aiguillon_Icon_Orb.png',
-  'afbeeldingen/Sorona_Icon_Orb.png',
-  'afbeeldingen/AI_Station_205_Icon_Orb.png',
-  'afbeeldingen/AI_Station_404_Icon_Orb.png',
-  'afbeeldingen/Black_Orb.png'
+  { 'selectId' : '#RibbitMap',          'orbId' : '#FirstSphere',   'src' : 'afbeeldingen/Ribbit_Icon_Orb.png',    'selected' : false, },
+  { 'selectId' : '#AiguillonMap',       'orbId' : '#SecondSphere',  'src' : 'afbeeldingen/Aiguillon_Icon_Orb.png', 'selected' : false, },
+  { 'selectId' : '#SoronaMap',          'orbId' : '#ThirdSphere',   'src' : 'afbeeldingen/Sorona_Icon_Orb.png',    'selected' : false, },
+  { 'selectId' : '#AI_Station_205_Map', 'orbId' : '#FourthSphere',  'src' : 'afbeeldingen/AI_Station_205_Icon_Orb.png', 'selected' : false, },
+  { 'selectId' : '#AI_Station_404_Map', 'orbId' : '#FifthSphere',   'src' : 'afbeeldingen/AI_Station_404_Icon_Orb.png', 'selected' : false, }
 );
+var mapSphereBlack = 'afbeeldingen/Black_Orb.png';
+
 /*
  * map buttons
  */
 function setupMapButtons(){
   //set map triggers
-  $('#RibbitMap').click(function(event) {
-    $('#FirstSphere').attr('src',mapSpheres[0]);
+  //TODO for loop $.click anonimous function can't acces mapSpheres, find out why and solve
+  $(mapSpheres[0].selectId).click(function(event) {
+    $(mapSpheres[0].orbId).attr('src',mapSpheres[0].src);
   });
-  $('#AiguillonMap').click(function(event) {
-    $('#SecondSphere').attr('src',mapSpheres[1]);
+  $(mapSpheres[1].selectId).click(function(event) {
+    $(mapSpheres[1].orbId).attr('src',mapSpheres[1].src);
   });
-  $('#SoronaMap').click(function(event) {
-    $('#ThirdSphere').attr('src',mapSpheres[2]);
+  $(mapSpheres[2].selectId).click(function(event) {
+    $(mapSpheres[2].orbId).attr('src',mapSpheres[2].src);
   });
-  $('#AI_Station_205_Map').click(function(event) {
-    $('#FourthSphere').attr('src',mapSpheres[3]);
+  $(mapSpheres[3].selectId).click(function(event) {
+    $(mapSpheres[3].orbId).attr('src',mapSpheres[3].src);
   });
-  $('#AI_Station_404_Map').click(function(event) {
-    $('#FifthSphere').attr('src',mapSpheres[4]);
+  $(mapSpheres[4].selectId).click(function(event) {
+    $(mapSpheres[4].orbId).attr('src',mapSpheres[4].src);
   });
 
   //reset spheres to blank
   $('#Random_Map').click(function(event) {
     $('.mapsphere').each(function() {
-      $(this).attr('src',mapSpheres[5]);
+      $(this).attr('src', mapSphereBlack);
     });
   });
 }
