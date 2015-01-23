@@ -315,10 +315,27 @@ RandomDL.src="afbeeldingen/Random_Icon.png";
 
 function changeImage8() {
 
-        if (document.getElementById("Competitive").src == "afbeeldingen/Competitive.png") 
-        {
-            document.getElementById("Competitive").src = "afbeeldingen/League_1.png";
-        }}
+       var img = $('#Competitive');
+if(img.attr('src') === 'afbeeldingen/Competitive.png'){
+  img.attr('src', 'afbeeldingen/League_1.png');
+}
+else if(img.attr('src') === 'afbeeldingen/League_1.png'){
+  img.attr('src', 'afbeeldingen/League_2.png');
+}
+else if(img.attr('src') === 'afbeeldingen/League_2.png'){
+  img.attr('src', 'afbeeldingen/League_3.png');
+}
+else if(img.attr('src') === 'afbeeldingen/League_3.png'){
+  img.attr('src', 'afbeeldingen/League_5.png');
+}
+else if(img.attr('src') === 'afbeeldingen/League_5.png'){
+  img.attr('src', 'afbeeldingen/League_9.png');
+}
+else if(img.attr('src') === 'afbeeldingen/League_9.png'){
+  img.attr('src', 'afbeeldingen/Competitive.png');
+}
+}
+
 
 function HLRibbit() {document.getElementById('RibbitMap').src=RibbitHL.src;}
 function DLRibbit() {document.getElementById('RibbitMap').src=RibbitDL.src;}
