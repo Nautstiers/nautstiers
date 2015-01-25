@@ -67,21 +67,21 @@ function addMapPositionsToLink(link){
   //trac if a map is selected
   var aMapSelected = false;
   //add parameter
-  link += '&m=';
+  var mlink = '&m=';
   //add a '1' selected ot '0' not selected for each map
   for (var i = 0; i < mapSpheres.length; i++) {
     if(mapSpheres[i].selected) {
-      link += '1';
+      mlink += '1';
+      aMapSelected = true;
     } else {
-      link += '0';
+      mlink += '0';
     }
-    aMapSelected = true;
   }
   //return empty string if no maps selected
   if(!aMapSelected){
-    return '';
+    return link;
   }
-  return link;
+  return link + mlink;
 }
 
 /*
@@ -93,8 +93,8 @@ function setupDragTriggers(){
       	drag: function(){
       		//update locations in positions
       		storePos($(this));
-          //update link
-          generateAndReplaceShareLink();
+          	//update link
+          	generateAndReplaceShareLink();
       	}
     	});
   });
