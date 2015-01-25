@@ -11,6 +11,7 @@ $(document).ready(function() {
   setupInitialMaps();
   setupDragTriggers();
   setupMapButtons();
+  setUpLeagueButtons();
 });
 
 /*
@@ -98,6 +99,23 @@ function setupDragTriggers(){
       	}
     	});
   });
+}
+
+//array containing league Images
+var leagueIcons = ['afbeeldingen/Competitive.png','afbeeldingen/League_1.png','afbeeldingen/League_2.png','afbeeldingen/League_3.png','afbeeldingen/League_5.png','afbeeldingen/League_9.png'];
+var currentIcon = 0;
+
+/*
+ * Cycle between league icons
+ */
+function setUpLeagueButtons(){
+	$('#LeagueIcon').click(function(event) {
+		currentIcon++;
+		if(currentIcon == leagueIcons.length){
+			currentIcon = 0;
+		}
+		$('#Competitive').attr('src',leagueIcons[currentIcon]);
+	});
 }
 
 //array containing mapSphereImages
@@ -227,6 +245,10 @@ function logMaps(){
   }
 }
 
+function logLeague(){
+	$('#info').text(currentIcon);
+}
+
 function logPositions(){
     $('#info').text('');
     $('#info').text(getUrl());
@@ -278,11 +300,6 @@ function getUrl(){
 /*
  * Generated code
  */
-img8=new Image();
-img8.src="afbeeldingen/League_1.png";
-img9=new Image();
-img9.src="afbeeldingen/League_2.png";
-
 RibbitHL= new Image();
 RibbitHL.src="afbeeldingen/Ribbit_Mouseover.png";
 RibbitDL= new Image();
@@ -312,30 +329,6 @@ RandomHL= new Image();
 RandomHL.src="afbeeldingen/Random_Mouseover.png";
 RandomDL= new Image();
 RandomDL.src="afbeeldingen/Random_Icon.png";
-
-function changeImage8() {
-
-       var img = $('#Competitive');
-if(img.attr('src') === 'afbeeldingen/Competitive.png'){
-  img.attr('src', 'afbeeldingen/League_1.png');
-}
-else if(img.attr('src') === 'afbeeldingen/League_1.png'){
-  img.attr('src', 'afbeeldingen/League_2.png');
-}
-else if(img.attr('src') === 'afbeeldingen/League_2.png'){
-  img.attr('src', 'afbeeldingen/League_3.png');
-}
-else if(img.attr('src') === 'afbeeldingen/League_3.png'){
-  img.attr('src', 'afbeeldingen/League_5.png');
-}
-else if(img.attr('src') === 'afbeeldingen/League_5.png'){
-  img.attr('src', 'afbeeldingen/League_9.png');
-}
-else if(img.attr('src') === 'afbeeldingen/League_9.png'){
-  img.attr('src', 'afbeeldingen/Competitive.png');
-}
-}
-
 
 function HLRibbit() {document.getElementById('RibbitMap').src=RibbitHL.src;}
 function DLRibbit() {document.getElementById('RibbitMap').src=RibbitDL.src;}
