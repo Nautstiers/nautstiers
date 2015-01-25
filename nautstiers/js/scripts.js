@@ -9,6 +9,7 @@ var DRAG_PREFIX = 'draggable';
 $(document).ready(function() {
   setupInitialPositions();
   setupInitialMaps();
+  setupInitialLeague();
   setupDragTriggers();
   setupMapButtons();
   setUpLeagueButtons();
@@ -35,7 +36,8 @@ function generateAndReplaceShareLink() {
 	var link = getUrl()+'?';
   //ad positions, maps
   link = addDragPositionsToLink(link);
-  link = addMapPositionsToLink(link);
+  link = addMapsToLink(link);
+  link = addLeagueToLink(link);
   //replace the link in the input box
   $(".share-input").attr('value', link);
 }
@@ -64,7 +66,7 @@ function addDragPositionsToLink(link){
 /*
  * Adds the maps to a string
  */
-function addMapPositionsToLink(link){
+function addMapsToLink(link){
   //trac if a map is selected
   var aMapSelected = false;
   //add parameter
@@ -83,6 +85,19 @@ function addMapPositionsToLink(link){
     return link;
   }
   return link + mlink;
+}
+
+/*
+ * Adds the league to a string
+ */
+function addLeagueToLink(link){
+	//if league is default no need add
+	if(currentIcon === 0){
+		return link;
+	}
+	//add parameter and currentLeague
+  	link += '&l=' + currentIcon;
+  	return link;
 }
 
 /*
@@ -105,17 +120,31 @@ function setupDragTriggers(){
 var leagueIcons = ['afbeeldingen/Competitive.png','afbeeldingen/League_1.png','afbeeldingen/League_2.png','afbeeldingen/League_3.png','afbeeldingen/League_5.png','afbeeldingen/League_9.png'];
 var currentIcon = 0;
 
+function loadLeagueIcon(){
+	$('#Competitive').attr('src',leagueIcons[currentIcon]);
+}
+
 /*
- * Cycle between league icons
+ * image trigger
  */
 function setUpLeagueButtons(){
 	$('#LeagueIcon').click(function(event) {
-		currentIcon++;
-		if(currentIcon == leagueIcons.length){
-			currentIcon = 0;
-		}
-		$('#Competitive').attr('src',leagueIcons[currentIcon]);
+		//cycle image
+		cycleLeagueImage();
+		//update share
+		generateAndReplaceShareLink();
 	});
+}
+
+/*
+ * cycle league image
+ */
+function cycleLeagueImage(){
+	currentIcon++;
+	if(currentIcon == leagueIcons.length){
+		currentIcon = 0;
+	}
+	loadLeagueIcon();
 }
 
 //array containing mapSphereImages
@@ -233,6 +262,18 @@ function setupInitialMaps(){
     fillMapOrbs();
   }
 
+}
+
+/*
+ * initial league
+ */
+function setupInitialLeague(){
+	//get url parameter l
+	var l = QueryString.l;
+	if (l !== undefined && l !== ''){
+		currentIcon = l;
+		loadLeagueIcon();
+	}
 }
 
 /*
