@@ -10,6 +10,7 @@ $(document).ready(function() {
   setupInitialPositions();
   setupInitialMaps();
   setupInitialLeague();
+  setupInitialVersion();
   setupDragTriggers();
   setupMapButtons();
   setUpLeagueButtons();
@@ -301,6 +302,18 @@ function setupInitialLeague(){
 		currentIcon = l;
 		loadLeagueIcon();
 	}
+}
+
+/*
+ * initial version
+ */
+function setupInitialVersion(){
+  //get url parameter
+  var v = QueryString.v;
+  if(v !== undefined && v !== ''){
+    curVersion = v;
+    $('#version').val(curVersion);
+  }
 }
 
 /*
