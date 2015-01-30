@@ -13,6 +13,7 @@ $(document).ready(function() {
   setupDragTriggers();
   setupMapButtons();
   setUpLeagueButtons();
+  setUpVersionButtons();
 });
 
 /*
@@ -224,6 +225,17 @@ function fillMapOrbs(){
   logMaps();
 }
 
+
+var curVersion = $('#version').val();
+/*
+ * setup the patch select
+ */
+function setUpVersionButtons() {
+  $('#version').change(function(event) {
+    curVersion = $('#version').val();
+  });
+}
+
 /*
  * initial position
  */
@@ -298,6 +310,10 @@ function logPositions(){
         $('#info').append('<br />'+i + ' ' + positions[i].top + ' ' + positions[i].left);
       }
     }
+}
+
+function logVersion(){
+  $('#info').text(curVersion);
 }
 
 /*
