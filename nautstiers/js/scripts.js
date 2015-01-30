@@ -39,6 +39,7 @@ function generateAndReplaceShareLink() {
   link = addDragPositionsToLink(link);
   link = addMapsToLink(link);
   link = addLeagueToLink(link);
+  link = addVersionToLink(link);
   //replace the link in the input box
   $(".share-input").attr('value', link);
 }
@@ -97,8 +98,20 @@ function addLeagueToLink(link){
 		return link;
 	}
 	//add parameter and currentLeague
-  	link += '&l=' + currentIcon;
-  	return link;
+  link += '&l=' + currentIcon;
+  return link;
+}
+
+/*
+ * Adds the version to a string
+ */
+function addVersionToLink(link){
+  if(curVersion === $("#version option:first").val()) {
+   return link;
+  }
+  //add parameter and current version
+  link += '&v=' + curVersion;
+  return link;
 }
 
 /*
@@ -233,6 +246,8 @@ var curVersion = $('#version').val();
 function setUpVersionButtons() {
   $('#version').change(function(event) {
     curVersion = $('#version').val();
+    logVersion();
+    generateAndReplaceShareLink();
   });
 }
 
