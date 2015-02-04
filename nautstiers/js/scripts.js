@@ -29,23 +29,36 @@ var DRAG_PREFIX = 'draggable';
  * Doc ready
  */
 $(document).ready(function() {
+  //load naut icons and run setup after loading
+  loadNauts();
+});
 
+/*
+ * loading nauts from jquery, because dom loading and applying drag on those elements was causing rendering errors for some people. 
+ */
+function loadNauts(){
+  //start load count at 1 because the first naut entry is empty
   var loadCount = 1;
   var nautContainer = $('#nautcontainer');
 
+  //loop over all nauts, start at 1 because the first naut entry is empty
   for(var i = 1; i < nautIcons.length; i++){
+    //add element and make it dragable
     nautContainer.append('<img class="drag-image" id="draggable'+i+'"/>');
+    //add a break every 4 icons
     if(i % 4 === 0){
       nautContainer.append('<br />');
     }
+    //load image for created draggable, executed function when done loading
     $('#draggable'+i).load(function() {
+      //increment loadcount when all are loaded run setup
       loadCount++;
-      if(loadCount === 22){
+      if(loadCount === nautIcons.length){
         setup();
       }
     }).attr('src', 'afbeeldingen/'+nautIcons[i]+'.png');
   }
-});
+}
 
 /*
  * setup the site
@@ -168,8 +181,8 @@ function setupDragTriggers(){
       	drag: function(){
       		//update locations in positions
       		storePos($(this));
-          	//update link
-          	generateAndReplaceShareLink();
+          //update link
+          generateAndReplaceShareLink();
       	}
     	});
   });
