@@ -151,7 +151,7 @@ function addLeagueToLink(link){
  * Adds the version to a string
  */
 function addVersionToLink(link){
-  if(curVersion === $("#version option:first").val()) {
+  if(curVersion === undefined || curVersion === $("#version option:first").val()) {
    return link;
   }
   //add parameter and current version
