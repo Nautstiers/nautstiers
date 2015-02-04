@@ -422,7 +422,7 @@ function removePx(string) {
 //get current url
 function getUrl(){
     var l = window.location;
-    var url = l.protocol + "//" + l.host + "/" + l.pathname;
+    var url = l.protocol + "//" + l.host + l.pathname;
     return url;
 }
 
