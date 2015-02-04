@@ -1,12 +1,56 @@
 //array to store position of the nauts, offsets mapped by id
 var positions = [];
 //part of the id that, this is prefixed in the draggable hmtl object
+var nautIcons = [ '', //all the original shares started at 1 instead of 0
+                  'Froggy_G_Icon',
+                  'Sheriff_Lonestar_Icon',
+                  'Leon_Chameleon_Icon',
+                  'Scoop_Icon',
+                  'Gnaw_Icon',
+                  'Raelynn_Icon',
+                  'Ayla_Icon',
+                  'Clunk_Icon',
+                  'Voltar_Icon',
+                  'Coco_Icon',
+                  'Skolldir_Icon',
+                  'Yuri_Icon',
+                  'Derpl_Icon',
+                  'Vinnie_Icon',
+                  'Genji_Icon',
+                  'Swiggins_Icon',
+                  'Ted_Icon',
+                  'Penny_Icon',
+                  'Sentry_Icon',
+                  'Skree_Icon',
+                  'Nibbs_Icon'];
 var DRAG_PREFIX = 'draggable';
 
 /*
  * Doc ready
  */
 $(document).ready(function() {
+
+  var loadCount = 1;
+  var nautContainer = $('#nautcontainer');
+
+  for(var i = 1; i < nautIcons.length; i++){
+    nautContainer.append('<img class="drag-image" id="draggable'+i+'"/>');
+    if(i % 4 === 0){
+      nautContainer.append('<br />');
+    }
+    $('#draggable'+i).load(function() {
+      loadCount++;
+      if(loadCount === 22){
+        setup();
+      }
+    }).attr('src', 'afbeeldingen/'+nautIcons[i]+'.png');
+  }
+});
+
+/*
+ * setup the site
+ */
+function setup(){
   setupInitialPositions();
   setupInitialMaps();
   setupInitialLeague();
@@ -15,7 +59,7 @@ $(document).ready(function() {
   setupMapButtons();
   setUpLeagueButtons();
   setUpVersionButtons();
-});
+}
 
 /*
  * obj - dragable image
