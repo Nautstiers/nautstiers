@@ -22,7 +22,9 @@ var nautIcons = [ '', //all the original shares started at 1 instead of 0
                   'Penny_Icon',
                   'Sentry_Icon',
                   'Skree_Icon',
-                  'Nibbs_Icon'];
+                  'Nibbs_Icon',
+				  'Rocco_Icon',
+				  'Ksenia_Icon'];
 var DRAG_PREFIX = 'draggable';
 
 /*
