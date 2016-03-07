@@ -24,7 +24,11 @@ var nautIcons = [ '', //all the original shares started at 1 instead of 0
                   'Skree_Icon',
                   'Nibbs_Icon',
 				  'Rocco_Icon',
-				  'Ksenia_Icon'];
+				  'Ksenia_Icon',
+				  'Yoolip_Icon',
+				  'Chucho_Icon',
+				  'Amy_Icon'
+				  ];
 var DRAG_PREFIX = 'draggable';
 
 /*
