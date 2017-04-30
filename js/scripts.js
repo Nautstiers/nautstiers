@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 //array to store position of the nauts, offsets mapped by id
 var positions = [];
 //part of the id that, this is prefixed in the draggable hmtl object
@@ -498,7 +497,7 @@ function HLStarstorm_Station() {document.getElementById('Starstorm_Station_Map')
 function DLStarstorm_Station() {document.getElementById('Starstorm_Station_Map').src=Starstorm_StationDL.src;}
 
 function HLRandom() {document.getElementById('Random_Map').src=RandomHL.src;}
-=======
+
 //array to store position of the nauts, offsets mapped by id
 var positions = [];
 //part of the id that, this is prefixed in the draggable hmtl object
@@ -998,5 +997,4 @@ function HLStarstorm_Station() {document.getElementById('Starstorm_Station_Map')
 function DLStarstorm_Station() {document.getElementById('Starstorm_Station_Map').src=Starstorm_StationDL.src;}
 
 function HLRandom() {document.getElementById('Random_Map').src=RandomHL.src;}
->>>>>>> origin/master
 function DLRandom() {document.getElementById('Random_Map').src=RandomDL.src;}
