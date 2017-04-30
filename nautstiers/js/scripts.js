@@ -27,7 +27,10 @@ var nautIcons = [ '', //all the original shares started at 1 instead of 0
 				  'Ksenia_Icon',
 				  'Yoolip_Icon',
 				  'Chucho_Icon',
-				  'Amy_Icon'
+				  'Amy_Icon',
+				  'Ix_Icon',
+				  'Max_Icon',
+				  'Deadlift_Icon'
 				  ];
 var DRAG_PREFIX = 'draggable';
 
@@ -231,7 +234,7 @@ var mapSpheres = new Array(
   { 'selectId' : '#AiguillonMap', 'orbId' : '#SecondSphere', 'src' : 'afbeeldingen/Aiguillon_Icon_Orb.png', 'selected' : false, },
   { 'selectId' : '#SoronaMap',    'orbId' : '#ThirdSphere',  'src' : 'afbeeldingen/Sorona_Icon_Orb.png',    'selected' : false, },
   { 'selectId' : '#AI_Station_205_Map', 'orbId' : '#FourthSphere', 'src' : 'afbeeldingen/AI_Station_205_Icon_Orb.png', 'selected' : false, },
-  { 'selectId' : '#AI_Station_404_Map', 'orbId' : '#FifthSphere',  'src' : 'afbeeldingen/AI_Station_404_Icon_Orb.png', 'selected' : false, }
+  { 'selectId' : '#Starstorm_Station_Map', 'orbId' : '#FifthSphere',  'src' : 'afbeeldingen/Starstorm_Station_Icon_Orb.png', 'selected' : false, }
 );
 var mapSphereBlack = 'afbeeldingen/Black_Orb.png';
 
@@ -468,10 +471,10 @@ AI_Station_205HL.src="afbeeldingen/AI_Station_205_Mouseover.png";
 AI_Station_205DL= new Image();
 AI_Station_205DL.src="afbeeldingen/AI_Station_205_Icon.png";
 
-AI_Station_404HL= new Image();
-AI_Station_404HL.src="afbeeldingen/AI_Station_404_Mouseover.png";
-AI_Station_404DL= new Image();
-AI_Station_404DL.src="afbeeldingen/AI_Station_404_Icon.png";
+Starstorm_StationHL= new Image();
+Starstorm_StationHL.src="afbeeldingen/Starstorm_Station_Mouseover.png";
+Starstorm_StationDL= new Image();
+Starstorm_StationDL.src="afbeeldingen/Starstorm_Station_Icon.png";
 
 RandomHL= new Image();
 RandomHL.src="afbeeldingen/Random_Mouseover.png";
@@ -490,8 +493,8 @@ function DLSorona() {document.getElementById('SoronaMap').src=SoronaDL.src;}
 function HLAI_Station_205() {document.getElementById('AI_Station_205_Map').src=AI_Station_205HL.src;}
 function DLAI_Station_205() {document.getElementById('AI_Station_205_Map').src=AI_Station_205DL.src;}
 
-function HLAI_Station_404() {document.getElementById('AI_Station_404_Map').src=AI_Station_404HL.src;}
-function DLAI_Station_404() {document.getElementById('AI_Station_404_Map').src=AI_Station_404DL.src;}
+function HLStarstorm_Station() {document.getElementById('Starstorm_Station_Map').src=Starstorm_StationHL.src;}
+function DLStarstorm_Station() {document.getElementById('Starstorm_Station_Map').src=Starstorm_StationDL.src;}
 
 function HLRandom() {document.getElementById('Random_Map').src=RandomHL.src;}
 function DLRandom() {document.getElementById('Random_Map').src=RandomDL.src;}
