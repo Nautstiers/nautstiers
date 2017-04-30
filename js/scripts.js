@@ -497,3 +497,4 @@ function HLStarstorm_Station() {document.getElementById('Starstorm_Station_Map')
 function DLStarstorm_Station() {document.getElementById('Starstorm_Station_Map').src=Starstorm_StationDL.src;}
 
 function HLRandom() {document.getElementById('Random_Map').src=RandomHL.src;}
+function DLRandom() {document.getElementById('Random_Map').src=RandomDL.src;}
