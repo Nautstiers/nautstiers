@@ -1,0 +1,403 @@
+<!DOCTYPE HTML>
+    <html> 
+    <head>
+         <style type="text/css">
+         .mover {
+             width:70px; height:70px; line-height:4em; margin:5px;                                                padding:5px; float:left; 
+             border:1px dotted #333333; text-align:center;  
+             } 
+			 
+			 
+             #boxS1{
+                background-image: url(afbeeldingen/Ix.jpg)
+             }
+             #boxS2{
+                background-image: url(afbeeldingen/Smiles.jpg)
+             }
+             #boxS3{
+                background-image: url(afbeeldingen/Penny.jpg)
+             }
+             #boxS4{
+                background-image: url(afbeeldingen/Vinnie.jpg)
+             }
+             #boxS5{
+                background-image: url(afbeeldingen/Empty.jpg)
+             }
+			 #boxS6{
+                background-image: url(afbeeldingen/Empty.jpg)
+             }
+			 #boxS7{
+                background-image: url(afbeeldingen/Empty.jpg)
+             }
+			 #boxS8{
+                background-image: url(afbeeldingen/Empty.jpg)
+             }
+			#boxS9{
+                background-image: url(afbeeldingen/Empty.jpg)
+             }
+			 #boxS10{
+                background-image: url(afbeeldingen/Empty.jpg)
+             }
+			 
+			 
+			 #boxA1{
+                background-image: url(afbeeldingen/Dizzy.jpg)
+             }
+             #boxA2{
+                background-image: url(afbeeldingen/Froggy_G.jpg)
+             }
+             #boxA3{
+                background-image: url(afbeeldingen/Ted.jpg)
+             }
+             #boxA4{
+                background-image: url(afbeeldingen/Skree.jpg)
+             }
+             #boxA5{
+                background-image: url(afbeeldingen/Genji.jpg)
+             }
+			 #boxA6{
+                background-image: url(afbeeldingen/Swiggins.jpg)
+             }
+			 #boxA7{
+                background-image: url(afbeeldingen/Scoop.jpg)
+             }
+			 #boxA8{
+                background-image: url(afbeeldingen/Deadlift.jpg)
+             }
+			#boxA9{
+                background-image: url(afbeeldingen/Empty.jpg)
+             }
+			 #boxA10{
+                background-image: url(afbeeldingen/Empty.jpg)
+             }
+			 
+			 
+			 
+			 #boxB1{
+                background-image: url(afbeeldingen/LUX.jpg)
+             }
+             #boxB2{
+                background-image: url(afbeeldingen/Ksenia.jpg)
+             }
+             #boxB3{
+                background-image: url(afbeeldingen/Leon.jpg)
+             }
+             #boxB4{
+                background-image: url(afbeeldingen/Raelynn.jpg)
+             }
+             #boxB5{
+                background-image: url(afbeeldingen/Skolldir.jpg)
+             }
+			 #boxB6{
+                background-image: url(afbeeldingen/Derpl.jpg)
+             }
+			 #boxB7{
+                background-image: url(afbeeldingen/Sentry.jpg)
+             }
+			 #boxB8{
+                background-image: url(afbeeldingen/Voltar.jpg)
+             }
+			#boxB9{
+                background-image: url(afbeeldingen/Empty.jpg)
+             }
+			 #boxB10{
+                background-image: url(afbeeldingen/Empty.jpg)
+             }
+			 
+			 
+			 #boxC1{
+                background-image: url(afbeeldingen/Chucho.jpg)
+             }
+             #boxC2{
+                background-image: url(afbeeldingen/Nibbs.jpg)
+             }
+             #boxC3{
+                background-image: url(afbeeldingen/Max.jpg)
+             }
+             #boxC4{
+                background-image: url(afbeeldingen/Coco.jpg)
+             }
+             #boxC5{
+                background-image: url(afbeeldingen/Gnaw.jpg)
+             }
+			 #boxC6{
+                background-image: url(afbeeldingen/Ayla.jpg)
+             }
+			 #boxC7{
+                background-image: url(afbeeldingen/Rocco.jpg)
+             }
+			 #boxC8{
+                background-image: url(afbeeldingen/Lonestar.jpg)
+             }
+			#boxC9{
+                background-image: url(afbeeldingen/Clunk.jpg)
+             }
+			 #boxC10{
+                background-image: url(afbeeldingen/Empty.jpg)
+             }
+			 
+			 
+			 #boxD1{
+                background-image: url(afbeeldingen/Yuri.jpg)
+             }
+             #boxD2{
+                background-image: url(afbeeldingen/Yoolip.jpg)
+             }
+             #boxD3{
+                background-image: url(afbeeldingen/Empty.jpg)
+             }
+             #boxD4{
+                background-image: url(afbeeldingen/Empty.jpg)
+             }
+             #boxD5{
+                background-image: url(afbeeldingen/Empty.jpg)
+             }
+			 #boxD6{
+                background-image: url(afbeeldingen/Empty.jpg)
+             }
+			 #boxD7{
+                background-image: url(afbeeldingen/Empty.jpg)
+             }
+			 #boxD8{
+                background-image: url(afbeeldingen/Empty.jpg)
+             }
+			#boxD9{
+                background-image: url(afbeeldingen/Empty.jpg)
+             }
+			 #boxD10{
+                background-image: url(afbeeldingen/Empty.jpg)
+             }
+			 
+          </style>
+          <script type="text/javascript">
+               function dragWord(dragEvent){
+                  dragEvent.dataTransfer.setData("Id",    dragEvent.target.id+"|"+dragEvent.target.parentNode.id);
+                 }                   
+               function dropWord(dropEvent){ 
+                var dropData = dropEvent.dataTransfer.getData("Id");
+                dropItems = dropData.split("|"); 
+                var prevElem = document.getElementById(dropItems[1]); 
+                prevElem.getElementsByTagName("div")[0].id =      dropEvent.target.id;              
+                dropEvent.target.id = dropItems[0]; 
+                dropEvent.preventDefault(); 
+                } 
+                </script> 
+                </head> 
+                <body bgcolor="black">
+                
+                <div id="Header"> <div style="position:relative; top: 20px; left: 0px;">
+                <img src="afbeeldingen/Header.jpg"/></div></div>
+                
+                <div id ="TierSLabel">
+        		<div STYLE="position: relative; top: 40px; left: 40px;">
+				<img src="afbeeldingen/Tier_S.jpg"/>
+				</div></div>
+                
+                <div id ="TierALabel">
+        		<div STYLE="position: relative; top: 60px; left: 40px;">
+				<img src="afbeeldingen/Tier_A.jpg"/>
+				</div></div>
+                
+                <div id ="TierBLabel">
+        		<div STYLE="position: relative; top: 80px; left: 40px;">
+				<img src="afbeeldingen/Tier_B.jpg"/>
+				</div></div>
+                
+                <div id ="TierCLabel">
+        		<div STYLE="position: relative; top: 100px; left: 40px;">
+				<img src="afbeeldingen/Tier_C.jpg"/>
+				</div></div>
+                
+                <div id ="TierDLabel">
+        		<div STYLE="position: relative; top: 120px; left: 40px;">
+				<img src="afbeeldingen/Tier_D.jpg"/>
+				</div></div>
+                
+                
+                <div id="TierSContainer"> <div style="position:relative; top: -386px; left: 260px;">
+                
+                    <div id="TierS1" ondragover="event.preventDefault()"      ondrop="dropWord(event)" > 
+                    <div class="mover" id="boxS1" draggable="true"      ondragstart="dragWord(event)" ></div> 
+                    </div>
+                    <div id="TierS2" ondragover="event.preventDefault()"     ondrop="dropWord(event)"> 
+                    <div class="mover" id="boxS2" draggable="true"      ondragstart="dragWord(event)"></div> 
+                    </div>
+                    <div id="TierS3" ondragover="event.preventDefault()"      ondrop="dropWord(event)"> 
+                    <div class="mover" id="boxS3" draggable="true"      ondragstart="dragWord(event)"></div> 
+                    </div> 
+                    <div id="TierS4" ondragover="event.preventDefault()"      ondrop="dropWord(event)"> 
+                    <div class="mover" id="boxS4" draggable="true"      ondragstart="dragWord(event)"></div> 
+                    </div> 
+                    <div id="TierS5" ondragover="event.preventDefault()"      ondrop="dropWord(event)"> 
+                    <div class="mover" id="boxS5" draggable="true"     ondragstart="dragWord(event)"></div> 
+                    </div>     
+                    <div id="TierS6" ondragover="event.preventDefault()"      ondrop="dropWord(event)"> 
+                    <div class="mover" id="boxS6" draggable="true"     ondragstart="dragWord(event)"></div> 
+                    </div>    
+                    <div id="TierS7" ondragover="event.preventDefault()"      ondrop="dropWord(event)"> 
+                    <div class="mover" id="boxS7" draggable="true"     ondragstart="dragWord(event)"></div> 
+                    </div>    
+                    <div id="TierS8" ondragover="event.preventDefault()"      ondrop="dropWord(event)"> 
+                    <div class="mover" id="boxS8" draggable="true"     ondragstart="dragWord(event)"></div> 
+                    </div>    
+                    <div id="TierS9" ondragover="event.preventDefault()"      ondrop="dropWord(event)"> 
+                    <div class="mover" id="boxS9" draggable="true"     ondragstart="dragWord(event)"></div> 
+                    </div>    
+                    <div id="TierS10" ondragover="event.preventDefault()"      ondrop="dropWord(event)"> 
+                    <div class="mover" id="boxS10" draggable="true"     ondragstart="dragWord(event)"></div> 
+                    </div>  
+                     
+                    </div>      
+                    </div>              
+                    
+                    
+                    <div id="TierAContainer"> <div style="position:relative; top: -282px; left: -660px;">
+                
+                    <div id="TierA1" ondragover="event.preventDefault()"      ondrop="dropWord(event)" > 
+                    <div class="mover" id="boxA1" draggable="true"      ondragstart="dragWord(event)" ></div> 
+                    </div>
+                    <div id="TierA2" ondragover="event.preventDefault()"     ondrop="dropWord(event)"> 
+                    <div class="mover" id="boxA2" draggable="true"      ondragstart="dragWord(event)"></div> 
+                    </div>
+                    <div id="TierA3" ondragover="event.preventDefault()"      ondrop="dropWord(event)"> 
+                    <div class="mover" id="boxA3" draggable="true"      ondragstart="dragWord(event)"></div> 
+                    </div> 
+                    <div id="TierA4" ondragover="event.preventDefault()"      ondrop="dropWord(event)"> 
+                    <div class="mover" id="boxA4" draggable="true"      ondragstart="dragWord(event)"></div> 
+                    </div> 
+                    <div id="TierA5" ondragover="event.preventDefault()"      ondrop="dropWord(event)"> 
+                    <div class="mover" id="boxA5" draggable="true"     ondragstart="dragWord(event)"></div> 
+                    </div>     
+                    <div id="TierA6" ondragover="event.preventDefault()"      ondrop="dropWord(event)"> 
+                    <div class="mover" id="boxA6" draggable="true"     ondragstart="dragWord(event)"></div> 
+                    </div>    
+                    <div id="TierA7" ondragover="event.preventDefault()"      ondrop="dropWord(event)"> 
+                    <div class="mover" id="boxA7" draggable="true"     ondragstart="dragWord(event)"></div> 
+                    </div>    
+                    <div id="TierA8" ondragover="event.preventDefault()"      ondrop="dropWord(event)"> 
+                    <div class="mover" id="boxA8" draggable="true"     ondragstart="dragWord(event)"></div> 
+                    </div>    
+                    <div id="TierA9" ondragover="event.preventDefault()"      ondrop="dropWord(event)"> 
+                    <div class="mover" id="boxA9" draggable="true"     ondragstart="dragWord(event)"></div> 
+                    </div>    
+                    <div id="TierA10" ondragover="event.preventDefault()"      ondrop="dropWord(event)"> 
+                    <div class="mover" id="boxA10" draggable="true"     ondragstart="dragWord(event)"></div> 
+                    </div>  
+                     
+                    </div>      
+                    </div> 
+                    
+                       
+                    <div id="TierBContainer"> <div style="position:relative; top: -270px; left: 260px;">
+                
+                    <div id="TierB1" ondragover="event.preventDefault()"      ondrop="dropWord(event)" > 
+                    <div class="mover" id="boxB1" draggable="true"      ondragstart="dragWord(event)" ></div> 
+                    </div>
+                    <div id="TierB2" ondragover="event.preventDefault()"     ondrop="dropWord(event)"> 
+                    <div class="mover" id="boxB2" draggable="true"      ondragstart="dragWord(event)"></div> 
+                    </div>
+                    <div id="TierB3" ondragover="event.preventDefault()"      ondrop="dropWord(event)"> 
+                    <div class="mover" id="boxB3" draggable="true"      ondragstart="dragWord(event)"></div> 
+                    </div> 
+                    <div id="TierB4" ondragover="event.preventDefault()"      ondrop="dropWord(event)"> 
+                    <div class="mover" id="boxB4" draggable="true"      ondragstart="dragWord(event)"></div> 
+                    </div> 
+                    <div id="TierB5" ondragover="event.preventDefault()"      ondrop="dropWord(event)"> 
+                    <div class="mover" id="boxB5" draggable="true"     ondragstart="dragWord(event)"></div> 
+                    </div>     
+                    <div id="TierB6" ondragover="event.preventDefault()"      ondrop="dropWord(event)"> 
+                    <div class="mover" id="boxB6" draggable="true"     ondragstart="dragWord(event)"></div> 
+                    </div>    
+                    <div id="TierB7" ondragover="event.preventDefault()"      ondrop="dropWord(event)"> 
+                    <div class="mover" id="boxB7" draggable="true"     ondragstart="dragWord(event)"></div> 
+                    </div>    
+                    <div id="TierB8" ondragover="event.preventDefault()"      ondrop="dropWord(event)"> 
+                    <div class="mover" id="boxB8" draggable="true"     ondragstart="dragWord(event)"></div> 
+                    </div>    
+                    <div id="TierB9" ondragover="event.preventDefault()"      ondrop="dropWord(event)"> 
+                    <div class="mover" id="boxB9" draggable="true"     ondragstart="dragWord(event)"></div> 
+                    </div>    
+                    <div id="TierB10" ondragover="event.preventDefault()"      ondrop="dropWord(event)"> 
+                    <div class="mover" id="boxB10" draggable="true"     ondragstart="dragWord(event)"></div> 
+                    </div>  
+                     
+                    </div>      
+                    </div> 
+                       
+                       
+                        
+                    <div id="TierCContainer"> <div style="position:relative; top: -166px; left: -660px;">
+                
+                    <div id="TierC1" ondragover="event.preventDefault()"      ondrop="dropWord(event)" > 
+                    <div class="mover" id="boxC1" draggable="true"      ondragstart="dragWord(event)" ></div> 
+                    </div>
+                    <div id="TierC2" ondragover="event.preventDefault()"     ondrop="dropWord(event)"> 
+                    <div class="mover" id="boxC2" draggable="true"      ondragstart="dragWord(event)"></div> 
+                    </div>
+                    <div id="TierC3" ondragover="event.preventDefault()"      ondrop="dropWord(event)"> 
+                    <div class="mover" id="boxC3" draggable="true"      ondragstart="dragWord(event)"></div> 
+                    </div> 
+                    <div id="TierC4" ondragover="event.preventDefault()"      ondrop="dropWord(event)"> 
+                    <div class="mover" id="boxC4" draggable="true"      ondragstart="dragWord(event)"></div> 
+                    </div> 
+                    <div id="TierC5" ondragover="event.preventDefault()"      ondrop="dropWord(event)"> 
+                    <div class="mover" id="boxC5" draggable="true"     ondragstart="dragWord(event)"></div> 
+                    </div>     
+                    <div id="TierC6" ondragover="event.preventDefault()"      ondrop="dropWord(event)"> 
+                    <div class="mover" id="boxC6" draggable="true"     ondragstart="dragWord(event)"></div> 
+                    </div>    
+                    <div id="TierC7" ondragover="event.preventDefault()"      ondrop="dropWord(event)"> 
+                    <div class="mover" id="boxC7" draggable="true"     ondragstart="dragWord(event)"></div> 
+                    </div>    
+                    <div id="TierC8" ondragover="event.preventDefault()"      ondrop="dropWord(event)"> 
+                    <div class="mover" id="boxC8" draggable="true"     ondragstart="dragWord(event)"></div> 
+                    </div>    
+                    <div id="TierC9" ondragover="event.preventDefault()"      ondrop="dropWord(event)"> 
+                    <div class="mover" id="boxC9" draggable="true"     ondragstart="dragWord(event)"></div> 
+                    </div>    
+                    <div id="TierC10" ondragover="event.preventDefault()"      ondrop="dropWord(event)"> 
+                    <div class="mover" id="boxC10" draggable="true"     ondragstart="dragWord(event)"></div> 
+                    </div>  
+                     
+                    </div>      
+                    </div>  
+                    
+                    <div id="TierDContainer"> <div style="position:relative; top: -154px; left: 260px;">
+                
+                    <div id="TierD1" ondragover="event.preventDefault()"      ondrop="dropWord(event)" > 
+                    <div class="mover" id="boxD1" draggable="true"      ondragstart="dragWord(event)" ></div> 
+                    </div>
+                    <div id="TierD2" ondragover="event.preventDefault()"     ondrop="dropWord(event)"> 
+                    <div class="mover" id="boxD2" draggable="true"      ondragstart="dragWord(event)"></div> 
+                    </div>
+                    <div id="TierD3" ondragover="event.preventDefault()"      ondrop="dropWord(event)"> 
+                    <div class="mover" id="boxD3" draggable="true"      ondragstart="dragWord(event)"></div> 
+                    </div> 
+                    <div id="TierD4" ondragover="event.preventDefault()"      ondrop="dropWord(event)"> 
+                    <div class="mover" id="boxD4" draggable="true"      ondragstart="dragWord(event)"></div> 
+                    </div> 
+                    <div id="TierD5" ondragover="event.preventDefault()"      ondrop="dropWord(event)"> 
+                    <div class="mover" id="boxD5" draggable="true"     ondragstart="dragWord(event)"></div> 
+                    </div>     
+                    <div id="TierD6" ondragover="event.preventDefault()"      ondrop="dropWord(event)"> 
+                    <div class="mover" id="boxD6" draggable="true"     ondragstart="dragWord(event)"></div> 
+                    </div>    
+                    <div id="TierD7" ondragover="event.preventDefault()"      ondrop="dropWord(event)"> 
+                    <div class="mover" id="boxD7" draggable="true"     ondragstart="dragWord(event)"></div> 
+                    </div>    
+                    <div id="TierD8" ondragover="event.preventDefault()"      ondrop="dropWord(event)"> 
+                    <div class="mover" id="boxD8" draggable="true"     ondragstart="dragWord(event)"></div> 
+                    </div>    
+                    <div id="TierD9" ondragover="event.preventDefault()"      ondrop="dropWord(event)"> 
+                    <div class="mover" id="boxD9" draggable="true"     ondragstart="dragWord(event)"></div> 
+                    </div>    
+                    <div id="TierD10" ondragover="event.preventDefault()"      ondrop="dropWord(event)"> 
+                    <div class="mover" id="boxD10" draggable="true"     ondragstart="dragWord(event)"></div> 
+                    </div>  
+                     
+                    </div>      
+                    </div>
+                     
+                                  
+            </body> 
+            </html>
