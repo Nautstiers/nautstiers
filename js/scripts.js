@@ -32,7 +32,8 @@ var nautIcons = [ '', //all the original shares started at 1 instead of 0
 				  'Max_Icon',
 				  'Deadlift_Icon',
 				  'Dizzy_Icon',
-				  'Smiles_Icon'
+				  'Smiles_Icon',
+				  'Rocket_Icon' 
 				  ];
 var DRAG_PREFIX = 'draggable';
 
