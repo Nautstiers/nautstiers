@@ -1,7 +1,7 @@
 html, body, #Background { padding: 0px; margin: 0px; }
 
 body {
-    background-color: #000000;
+    background-color: #011d32;
 }
 
 .drag-image { position: relative; }
@@ -19,4 +19,24 @@ body {
 
 }
 
+.block {
+    background-color: black;
+    border: 3px solid blue;
+    border-radius: 15px;
+    opacity: 0.5;
+    margin-top: 1cm;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 20%;
+}
+
+.text {
+    font-family: Arial, Helvetica, sans-serif;
+    opacity: 1.0;
+    color: white;
+    margin-left: 0.5cm;
+    margin-right: 0.5cm;
+    margin-top: 0.5cm;
+    margin-bottom: 0.5cm;
+}
 -->
